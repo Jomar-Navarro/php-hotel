@@ -38,6 +38,7 @@ $hotels = [
     'distance_to_center' => 50
   ],
 
+
 ];
 
 // var_dump($hotels);
@@ -54,18 +55,19 @@ $hotels = [
   <title>Php Hotel</title>
 </head>
 
-<body>
+<body class="bg-secondary">
   <div class="container my-5">
-    <h1>Php Hotel</h1>
+    <h1 class="text-center">Php Hotel</h1>
     <div class="d-flex">
       <?php foreach ($hotels as $hotel) : ?>
-        <div class="card" style="width: 18rem;">
+        <div class="card m-3" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><?php echo $hotel['name'] ?></h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">
               <?php echo $hotel['description'] ?>
             </h6>
-            <p class="card-text"><?php echo $hotel['parking'] ?></p>
+            <hr>
+            <p class="card-text"><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></p>
             <p class="card-text"><?php echo $hotel['vote'] ?></p>
             <p class="card-text"><?php echo $hotel['distance_to_center'] ?></p>
           </div>
