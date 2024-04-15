@@ -60,7 +60,7 @@ $hotels = [
     <h1 class="text-center">Php Hotel</h1>
     <div class="d-flex">
       <?php foreach ($hotels as $hotel) : ?>
-        <div class="card m-3" style="width: 18rem;">
+        <div class="card m-3 bg-primary-subtle" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title"><?php echo $hotel['name'] ?></h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">
