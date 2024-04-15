@@ -67,9 +67,9 @@ $hotels = [
               <?php echo $hotel['description'] ?>
             </h6>
             <hr>
-            <p class="card-text"><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></p>
-            <p class="card-text"><?php echo $hotel['vote'] ?></p>
-            <p class="card-text"><?php echo $hotel['distance_to_center'] ?></p>
+            <p class="card-text">Parcheggio: <?php echo $hotel['parking'] ? 'Yes' : 'No' ?></p>
+            <p class="card-text">Voto: <?php echo $hotel['vote'] ?></p>
+            <p class="card-text">Distanza dal centro: <?php echo $hotel['distance_to_center'] ?></p>
           </div>
         </div>
       <?php endforeach ?>
