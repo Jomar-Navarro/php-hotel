@@ -41,7 +41,29 @@ $hotels = [
 
 ];
 
+$vote = isset($_POST['vote']) ? $_POST['vote'] : 0;
+
+if (!isset($_POST['parking'])) {
+  foreach ($hotels as $hotel) {
+    if ($hotel['vote'] >= $vote) {
+      $filtered_hotels[] = $hotel;
+    }
+  }
+}
+
 // var_dump($hotels);
+
+var_dump($_POST);
+
+if (!isset($_POST['parking'])) {
+  $filtered_hotels = $hotels;
+} else {
+  foreach ($hotels as $hotel) {
+    if ($hotel['parking']) {
+      $filtered_hotels[] = $hotel;
+    }
+  }
+}
 
 ?>
 
@@ -58,6 +80,27 @@ $hotels = [
 <body class="bg-secondary">
   <div class="container my-5">
     <h1 class="text-center">Php Hotel</h1>
+
+    <form action="index.php" method="$_POST">
+      <div class="m-3 d-flex align-items-center">
+        <div class="px-2">
+          <input class="form-check-input" type="checkbox" id="parking">
+          <label class="form-check-label" for="parking">
+            Solo con Parcheggio
+          </label>
+        </div>
+
+        <?php for ($i = 0; $i <= 5; $i++) :  ?>
+          <div class="mx-2">
+            <input type="radio" class="form-check-input" name="vote" id="vote<?php echo $i ?>" value="<?php echo $i ?>">
+            <label for="vote<?php echo $i ?>" class="form-check-label"> <?php echo $i ?> </label>
+          </div>
+        <?php endfor ?>
+
+        <button class="btn btn-success">Filter</button>
+      </div>
+    </form>
+
     <div class="d-flex">
       <?php foreach ($hotels as $hotel) : ?>
         <div class="card m-3 bg-primary-subtle" style="width: 18rem;">
@@ -69,7 +112,7 @@ $hotels = [
             <hr>
             <p class="card-text">Parcheggio: <?php echo $hotel['parking'] ? 'Yes' : 'No' ?></p>
             <p class="card-text">Voto: <?php echo $hotel['vote'] ?></p>
-            <p class="card-text">Distanza dal centro: <?php echo $hotel['distance_to_center'] ?></p>
+            <p class="card-text">Distanza dal centro: <?php echo $hotel['distance_to_center'] ?> Km</p>
           </div>
         </div>
       <?php endforeach ?>
