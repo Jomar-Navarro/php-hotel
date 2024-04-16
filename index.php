@@ -45,7 +45,7 @@ $vote = isset($_POST['vote']) ? $_POST['vote'] : 0;
 
 if (!isset($_POST['parking'])) {
   foreach ($hotels as $hotel) {
-    if ($hotel['vote'] >= $vote) {
+    if ($hotel['parking'] && $hotel['vote'] >= $vote) {
       $filtered_hotels[] = $hotel;
     }
   }
